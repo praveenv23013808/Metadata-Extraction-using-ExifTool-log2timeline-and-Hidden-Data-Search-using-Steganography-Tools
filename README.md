@@ -1,21 +1,8 @@
 # Metadata-Extraction-using-ExifTool-log2timeline-and-Hidden-Data-Search-using-Steganography-Tools
+
 ## AIM:
 To extract metadata, perform timeline analysis, and search for hidden data using forensic tools like ExifTool, log2timeline, and steganography detection tools.
-## REQUIREMENTS
-- **Operating System:** Kali Linux (preferred) or any Linux distro with forensic tools
-- **Tools:**
-     -  ExifTool – For metadata extraction
-     -  plaso/log2timeline – For timeline analysis
-- **Steganography tools:** steghide, zsteg, binwalk
-- **Test Data:** Image, video, and document files (some with embedded hidden data)
-## ARCHITECTURE DIAGRAM
-```mermaid
-flowchart TD
-    A[Sample Files - Images, Videos, Documents] --> B[Metadata Extraction with ExifTool]
-    B --> C[Event Timeline Creation with log2timeline]
-    C --> D[Hidden Data Search with Steganography Tools]
-    D --> E[Evidence Analysis and Documentation]
-```
+
 ## DESIGN STEPS:
 ### Step 1:
 Use exiftool to extract metadata from files such as images, documents, and videos.
@@ -27,30 +14,24 @@ Use log2timeline and plaso to create and analyze event timelines from system log
 Apply steganography detection tools like steghide, zsteg, or binwalk to uncover hidden data in media files.
 
 ## PROGRAM:
-| Step | Action                  | Tool                 | Output                           |
-| ---- | ----------------------- | -------------------- | -------------------------------- |
-| 1    | Extract file metadata   | ExifTool             | Metadata fields, GPS, timestamps |
-| 2    | Generate event timeline | log2timeline / plaso | CSV/HTML timeline                |
-| 3    | Search for hidden data  | steghide / binwalk   | Extracted hidden files           |
-| 4    | Document findings       | Manual report        | Investigation record             |
-
+Metadata and Timeline Forensics, Steganography Analysis Steps
 
 ## OUTPUT:
-### A. Using ExifTool – for file metadata
-- **Install:**
+### ✅ A. Using ExifTool – for file metadata
+- **📦 Install:**
 ```bash
 sudo apt update
 sudo apt install exiftool -y
 ```
-- **Extract metadata from a file:**
+- **📂 Extract metadata from a file:**
 ```bash
 exiftool image.jpg
 ```
-- **Batch process a folder:**
+- **📁 Batch process a folder:**
 ```bash
 exiftool -r /path/to/folder
 ```
-- **Useful flags:**
+- **📌 Useful flags:**
   
 - ```-G: Show metadata group```
 
@@ -58,7 +39,7 @@ exiftool -r /path/to/folder
 
 - ```-GPSLatitude -GPSLongitude: Extract GPS data```
 
-
+  ![image](https://github.com/user-attachments/assets/861dc1d1-4932-460d-9261-2e3295ee9f42)
 
 ### install log2timeline
 ```
@@ -72,14 +53,14 @@ sudo apt install steghide -y
 ```
 steghide embed -cf /home/kali/Downloads/wallpaper.jpg -ef /home/kali/Downloads/secret.txt
 ```
-
+![image](https://github.com/user-attachments/assets/d34970ca-ee2c-4a7f-9980-518b74962f02)
 
 - **Extract hidden data:**
 ```
 steghide extract -sf hidden.jpg
 
 ```
-
+![image](https://github.com/user-attachments/assets/85520110-9150-417a-b6a9-28e559100cf7)
 
 ### Using binwalk – for file analysis
 ```bash
@@ -89,7 +70,7 @@ binwalk suspicious.jpg
 ```bash
 binwalk /home/kali/Downloads/wallpaper.jpg
 ```
-
+![image](https://github.com/user-attachments/assets/b26be271-0680-491f-8868-1216de6fd7eb)
 
 ## RESULT:
 Metadata was successfully extracted, timeline analysis was completed, and hidden data was identified using steganography tools.
